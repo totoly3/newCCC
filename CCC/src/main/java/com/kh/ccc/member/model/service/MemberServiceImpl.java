@@ -24,6 +24,7 @@ public class MemberServiceImpl implements MemberService{
 		return loginUser;
 	}
 	
+<<<<<<< HEAD
 	//회원가입
 	@Override
 	public int insertMember(Member m) {
@@ -41,6 +42,9 @@ public class MemberServiceImpl implements MemberService{
 		
 		return count;
 	}
+=======
+	
+>>>>>>> refs/remotes/origin/ABC
 	
 	
 

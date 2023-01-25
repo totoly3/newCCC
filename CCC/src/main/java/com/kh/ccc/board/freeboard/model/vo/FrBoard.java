@@ -3,6 +3,12 @@ package com.kh.ccc.board.freeboard.model.vo;
 import java.sql.Date;
 
 
+<<<<<<< HEAD
+=======
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+>>>>>>> refs/remotes/origin/ABC
 
 public class FrBoard {
 	////

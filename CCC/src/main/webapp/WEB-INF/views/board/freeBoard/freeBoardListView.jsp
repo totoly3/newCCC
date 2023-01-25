@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
+<<<<<<< HEAD
     
     	
 		.w-btn-pink-outline {
@@ -161,6 +162,133 @@
 					})
 				</script>
 			</c:if>
+=======
+        .content {
+            background-color:rgb(247, 245, 245);
+            width:80%;
+            margin:auto;
+        }
+        .innerOuter {
+            border:1px solid lightgray;
+            width:80%;
+            margin:auto;
+            padding:5% 10%;
+            background-color:white;
+        }
+        #boardList {text-align:center;}
+        #boardList>tbody>tr:hover {cursor:pointer;}
+        #pagingArea {width:fit-content; margin:auto;}
+        #searchForm {
+            width:80%;
+            margin:auto;
+        }
+        #searchForm>* {
+            float:left;
+            margin:5px;
+        }
+        .select {width:20%;}
+        .text {width:53%;}
+        .searchBtn {width:20%;}
+    </style>
+</head>
+<body>
+   <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+    <div class="content">
+        <br><br>
+        <div class="innerOuter" style="padding:5% 10%;">
+            <h1>자유게시판</h1>
+            <br>
+   
+            <a class="btn btn-secondary" style="float:right;" href="insert.fpom">글쓰기</a>
+        
+            <br>
+            <br>
+            <table id="boardList" class="table table-hover" align="center">
+                <thead>
+                    <tr class="ct">
+                    	<th><input type="checkbox"></th>
+                        <th>글번호</th>
+                        <th>제목</th>
+               		    <th>작성자</th>
+                        <th>조회수</th>
+                        <th>작성일</th>
+                        <th>첨부파일</th>
+                    </tr>
+                </thead>
+                <tbody>               	
+       
+                	<c:forEach var="B" items="${list}">
+						<tr>
+							<td data-index="1"><input type="checkbox" name="check" id="multiCheck" value="${B.fNo}"></td>
+	                        <td data-index="2">${B.fNo }</td>
+	                        <td data-index="3" class="goDetailFr">${B.fTitle }</td>
+	                    	<td data-index="4">${B.mId } </td>
+	                        <td data-index="5">${B.fCount }</td>
+	                        <td data-index="6">${B.fCreateDate }</td>
+	                        <td>
+	                        <c:if test="${!B.fTitleimg.isEmpty()}">★
+	                        </c:if>
+	                        </td>
+	                    </tr>
+                	</c:forEach>
+           	
+                    
+                </tbody>
+            </table>
+            
+            <!--      글번호 히든으로 넘기기 -->
+			<input type="hidden" name="fWriterNo" value="${loginUser.mNo}">
+			
+            <br>
+           <div id="pagingArea">
+                <ul class="pagination">
+                	<!-- currentPage가 1이면 숨기기 -->
+                	<c:choose>
+	                	<c:when test="${ pi.currentPage ne 1 }">
+	                    	<li class="page-item"><a class="page-link" href="list.fr?currentPage=${ pi.currentPage - 1 }">Previous</a></li>
+	                    </c:when>
+	                    <c:otherwise><!-- currentPage가 1일경우 (1페이지) -->
+	                    	<li class="page-item disabled"><a class="page-link" href="list.fr?currentPage=${ pi.currentPage - 1 }">Previous</a></li>	                   
+	                    </c:otherwise>
+                	</c:choose>
+                    	
+                    	<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
+	                    	<li class="page-item"><a class="page-link" href="list.fr?currentPage=${ p }">${ p }</a></li>
+                    	</c:forEach>
+                    <!-- currentPage가 maxPage와 일치하면 숨기기 -->
+                    <c:choose>
+	                    <c:when test="${ pi.currentPage eq pi.maxPage }">
+	                    	<li class="page-item disabled"><a class="page-link" href="list.fr?currentPage=${ pi.currentPage + 1 }">Next</a></li>
+	                    </c:when>
+	                    <c:otherwise>
+	                    	<li class="page-item"><a class="page-link" href="list.fr?currentPage=${ pi.currentPage + 1 }">Next</a></li>
+	                    </c:otherwise>
+                    </c:choose>
+                </ul>
+            </div>
+            
+            	<!-- 삭제버튼 구현 --> 
+          	<div id="deleteKey" style="float:right">
+   				<a class="btn btn-outline-dark"  id="checkAll">전체선택</a>
+   				<a class="btn btn-outline-dark"  id="unCheckAll">전체해제</a>
+   				<a class="btn btn-secondary"  onclick="deleteClick()">선택회원 삭제</a>
+			</div>
+            
+            <br clear="both"><br>
+            <form id="searchForm" action="" method="get" align="center">
+                <div class="select">
+                    <select class="custom-select" name="condition">
+                        <option value="writer">작성자</option>
+                        <option value="title">제목</option>
+                        <option value="content">내용</option>
+                    </select>
+                </div>
+                <div class="text">
+                    <input type="text" class="form-control" name="keyword">
+                </div>
+                <button type="submit" class="searchBtn btn btn-secondary">검색</button>
+            </form>
+>>>>>>> refs/remotes/origin/ABC
             <br><br>
         </div>
         <br><br>

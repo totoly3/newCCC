@@ -27,6 +27,7 @@ public class AllTimeBoardController {
 		
 		System.out.println("============여기는 리스트로 이동  ==========");
 
+<<<<<<< HEAD
 		mv.setViewName("board/allTimeBoard/AlltimeBoardListView2");
 		return mv;
 	}
@@ -39,6 +40,23 @@ public class AllTimeBoardController {
 
 		ArrayList<Character> altimelist = AlltimeBoardService.allTimeSelectList();
 
+=======
+		mv.setViewName("board/allTimeBoard/AlltimeBoardListView");
+		return mv;
+	}
+	
+	
+	//리스트 뿌려주기 
+	@ResponseBody
+	@RequestMapping(value="list.alltimech",produces="application/json; charset=UTF-8")
+	public String allTimeBoard(){
+
+		ArrayList<Character> altimelist = AlltimeBoardService.allTimeSelectList();
+
+		System.out.println("altimelist는??"+altimelist);
+		System.out.println("0번째 첸지네임은?"+altimelist.get(0).getChangeName());
+		System.out.println("1번째 첸지네임은?"+altimelist.get(1).getChangeName());
+>>>>>>> refs/remotes/origin/ABC
 		
 		System.out.println("============여기는 리스트 뿌리기로 이동  ==========");
 
