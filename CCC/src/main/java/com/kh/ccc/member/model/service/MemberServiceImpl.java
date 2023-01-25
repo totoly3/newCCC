@@ -24,7 +24,27 @@ public class MemberServiceImpl implements MemberService{
 		return loginUser;
 	}
 	
+<<<<<<< HEAD
+	//회원가입
+	@Override
+	public int insertMember(Member m) {
+		
+		int result=memberDao.insertMember(sqlSession,m);
+		
+		return result;
+	}
+
+	//아이디 중복체크
+	@Override
+	public int idCheck(String userId) {
+		
+		int count=memberDao.idCheck(sqlSession,userId);
+		
+		return count;
+	}
+=======
 	
+>>>>>>> refs/remotes/origin/ABC
 	
 	
 

@@ -13,7 +13,21 @@ public class MemberDao {
 		return sqlSession.selectOne("memberMapper.loginMember", m);
 	}
 	
+<<<<<<< HEAD
+	//회원가입
+	public int insertMember(SqlSessionTemplate sqlSession, Member m) {
+		
+		return sqlSession.insert("memberMapper.insertMember",m);
+	}
+
+	//아이디체크
+	public int idCheck(SqlSessionTemplate sqlSession, String userId) {
+		
+		return sqlSession.selectOne("memberMapper.checkId",userId);
+	}
+=======
 	
 	
+>>>>>>> refs/remotes/origin/ABC
 
 }

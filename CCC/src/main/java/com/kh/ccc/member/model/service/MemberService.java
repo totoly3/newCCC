@@ -6,5 +6,14 @@ public interface MemberService {
 
 	// 로그인 서비스 select
 	Member loginMember(Member m);
+<<<<<<< HEAD
+	
+	//회원가입  insert
+	int insertMember(Member m);
+	
+    //아이디 중복체크
+	int idCheck(String userId);
+=======
 
+>>>>>>> refs/remotes/origin/ABC
 }
