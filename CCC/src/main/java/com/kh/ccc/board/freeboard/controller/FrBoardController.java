@@ -39,7 +39,7 @@ public class FrBoardController {
 	
 
 	
-	//
+	////da
 	
 	
 	//view 페이지 포워딩 
